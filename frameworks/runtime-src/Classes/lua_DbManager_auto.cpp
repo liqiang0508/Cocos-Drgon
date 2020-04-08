@@ -6,7 +6,6 @@
 #include "CCLuaValue.h"
 #include "CCLuaEngine.h"
 
-
 int lua_DbManager_Armature_getBone(lua_State* tolua_S)
 {
     int argc = 0;
@@ -1323,6 +1322,53 @@ int lua_DbManager_Armature_getReplacedTexture(lua_State* tolua_S)
 
     return 0;
 }
+int lua_DbManager_Armature_getAnimation(lua_State* tolua_S)
+{
+    int argc = 0;
+    dragonBones::Armature* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"db.Armature",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (dragonBones::Armature*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Armature_getAnimation'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Armature_getAnimation'", nullptr);
+            return 0;
+        }
+        dragonBones::Animation* ret = cobj->getAnimation();
+        object_to_luaval<dragonBones::Animation>(tolua_S, "db.Animation",(dragonBones::Animation*)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "db.Armature:getAnimation",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Armature_getAnimation'.",&tolua_err);
+#endif
+
+    return 0;
+}
 int lua_DbManager_Armature_getParent(lua_State* tolua_S)
 {
     int argc = 0;
@@ -1674,6 +1720,7 @@ int lua_register_DbManager_Armature(lua_State* tolua_S)
         tolua_function(tolua_S,"getClassTypeIndex",lua_DbManager_Armature_getClassTypeIndex);
         tolua_function(tolua_S,"_addSlot",lua_DbManager_Armature__addSlot);
         tolua_function(tolua_S,"getReplacedTexture",lua_DbManager_Armature_getReplacedTexture);
+        tolua_function(tolua_S,"getAnimation",lua_DbManager_Armature_getAnimation);
         tolua_function(tolua_S,"getParent",lua_DbManager_Armature_getParent);
         tolua_function(tolua_S,"getSlotByDisplay",lua_DbManager_Armature_getSlotByDisplay);
         tolua_function(tolua_S,"getEventDispatcher",lua_DbManager_Armature_getEventDispatcher);
@@ -4138,7 +4185,73 @@ int lua_DbManager_Animation_getTypeIndex(lua_State* tolua_S)
 #endif
     return 0;
 }
-int lua_DbManager_Animation_constructor(lua_State* tolua_S)
+int timeScale_gettimeScale(lua_State* tolua_S)
+{
+    dragonBones::Animation* cobj = nullptr;
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"db.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+    
+    cobj = (dragonBones::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'timeScale_gettimeScale'", nullptr);
+        return 0;
+    }
+#endif
+
+    tolua_pushnumber(tolua_S,(lua_Number)cobj->timeScale);
+
+    return 1;
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'timeScale_gettimeScale'.",&tolua_err);
+    return 0;
+#endif
+}
+
+int timeScale_settimeScale(lua_State* tolua_S)
+{
+    int argc = 0;
+    dragonBones::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+    if (!tolua_isusertype(tolua_S,1,"db.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (dragonBones::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'timeScale_settimeScale'", nullptr);
+        return 0;
+    }
+#endif
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (1 == argc)
+    {
+        double arg0;
+        ok &= luaval_to_number(tolua_S, 2,&arg0, "db.Animation:timeScale");
+        cobj->timeScale = arg0;
+        return 0;
+    }
+
+    CCLOG("%s has wrong number of arguments: %d, was expecting %d \n", "db.Animation:timeScale",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'timeScale_gettimeScale'.",&tolua_err);
+    return 0;
+#endif
+}int lua_DbManager_Animation_constructor(lua_State* tolua_S)
 {
     int argc = 0;
     dragonBones::Animation* cobj = nullptr;
@@ -4215,6 +4328,53 @@ int lua_register_DbManager_Animation(lua_State* tolua_S)
     return 1;
 }
 
+int lua_DbManager_CCArmatureDisplay_getAnimation(lua_State* tolua_S)
+{
+    int argc = 0;
+    dragonBones::CCArmatureDisplay* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"db.CCArmatureDisplay",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (dragonBones::CCArmatureDisplay*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_CCArmatureDisplay_getAnimation'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_CCArmatureDisplay_getAnimation'", nullptr);
+            return 0;
+        }
+        dragonBones::Animation* ret = cobj->getAnimation();
+        object_to_luaval<dragonBones::Animation>(tolua_S, "db.Animation",(dragonBones::Animation*)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "db.CCArmatureDisplay:getAnimation",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_CCArmatureDisplay_getAnimation'.",&tolua_err);
+#endif
+
+    return 0;
+}
 int lua_DbManager_CCArmatureDisplay_hasDBEventListener(lua_State* tolua_S)
 {
     int argc = 0;
@@ -4768,6 +4928,7 @@ int lua_register_DbManager_CCArmatureDisplay(lua_State* tolua_S)
 
     tolua_beginmodule(tolua_S,"CCArmatureDisplay");
         tolua_function(tolua_S,"new",lua_DbManager_CCArmatureDisplay_constructor);
+        tolua_function(tolua_S,"getAnimation",lua_DbManager_CCArmatureDisplay_getAnimation);
         tolua_function(tolua_S,"hasDBEventListener",lua_DbManager_CCArmatureDisplay_hasDBEventListener);
         tolua_function(tolua_S,"dbInit",lua_DbManager_CCArmatureDisplay_dbInit);
         tolua_function(tolua_S,"addDBEventListener",lua_DbManager_CCArmatureDisplay_addDBEventListener);
@@ -5025,6 +5186,57 @@ int lua_DbManager_DbManager_buildArmatureDisplay(lua_State* tolua_S)
 #endif
     return 0;
 }
+int lua_DbManager_DbManager_ArmarureAniTimeScale(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"DbManager",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 1)
+    {
+        dragonBones::CCArmatureDisplay* arg0;
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarureAniTimeScale");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'", nullptr);
+            return 0;
+        }
+        DbManager::ArmarureAniTimeScale(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    if (argc == 2)
+    {
+        dragonBones::CCArmatureDisplay* arg0;
+        double arg1;
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarureAniTimeScale");
+        ok &= luaval_to_number(tolua_S, 3,&arg1, "DbManager:ArmarureAniTimeScale");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'", nullptr);
+            return 0;
+        }
+        DbManager::ArmarureAniTimeScale(arg0, arg1);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "DbManager:ArmarureAniTimeScale",argc, 1);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'.",&tolua_err);
+#endif
+    return 0;
+}
 int lua_DbManager_DbManager_constructor(lua_State* tolua_S)
 {
     int argc = 0;
@@ -5077,6 +5289,7 @@ int lua_register_DbManager_DbManager(lua_State* tolua_S)
         tolua_function(tolua_S,"ArmarureAddEventListener", lua_DbManager_DbManager_ArmarureAddEventListener);
         tolua_function(tolua_S,"LoadData", lua_DbManager_DbManager_LoadData);
         tolua_function(tolua_S,"buildArmatureDisplay", lua_DbManager_DbManager_buildArmatureDisplay);
+        tolua_function(tolua_S,"ArmarureAniTimeScale", lua_DbManager_DbManager_ArmarureAniTimeScale);
     tolua_endmodule(tolua_S);
     std::string typeName = typeid(DbManager).name();
     g_luaType[typeName] = "DbManager";

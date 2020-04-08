@@ -19,6 +19,7 @@ function MainScene:onCreate()
 	ar:setPosition(display.center)
 	
 	DbManager:ArmarurePalyAni(ar,"walk");
+	DbManager:ArmarureAniTimeScale(ar,0.5)
 
 	DbManager:ArmarureAddEventListener(ar,function(aniName,aniType,customEvent)
 	

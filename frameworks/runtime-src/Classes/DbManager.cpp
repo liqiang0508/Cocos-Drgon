@@ -27,7 +27,13 @@ void DbManager::ArmarurePalyAni(CCArmatureDisplay* ar, const std::string& animat
 	if (ar)
 	{
 		ar->getAnimation()->play(animationName,times);
+		ar->getAnimation()->timeScale = 1.0f;
 	}
+}
+
+void DbManager::ArmarureAniTimeScale(CCArmatureDisplay* ar,  float timeScale)
+{
+	ar->getAnimation()->timeScale = timeScale;
 }
 
  void DbManager::ArmarureAddEventListener(CCArmatureDisplay* ar, const std::function<void(EventCustom*)>& callback)
