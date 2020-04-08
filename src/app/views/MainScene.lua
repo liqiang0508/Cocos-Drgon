@@ -17,13 +17,15 @@ function MainScene:onCreate()
 	print("ar===",ar,type(ar))
 	self:addChild(ar)
 	ar:setPosition(display.center)
+	ar:setScale(0.5)
 	
 	DbManager:ArmarurePalyAni(ar,"walk");
 	DbManager:ArmarureAniTimeScale(ar,0.5)
-
+	print(ar:getBoundingBox())
 	DbManager:ArmarureAddEventListener(ar,function(aniName,aniType,customEvent)
 	
 		print(aniName,aniType,customEvent)
+		ar:setVisible(not ar:isVisible())
 	end)
 end
 

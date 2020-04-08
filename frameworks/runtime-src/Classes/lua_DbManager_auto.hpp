@@ -110,7 +110,5 @@ int register_all_DbManager(lua_State* tolua_S);
 
 
 
-
-
 #endif // __DbManager_h__
 #endif //#if CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID || CC_TARGET_PLATFORM == CC_PLATFORM_IOS || CC_TARGET_PLATFORM == CC_PLATFORM_MAC || CC_TARGET_PLATFORM == CC_PLATFORM_WIN32
