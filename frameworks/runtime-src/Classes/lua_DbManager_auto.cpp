@@ -7,6 +7,1041 @@
 #include "CCLuaEngine.h"
 
 
+int lua_DbManager_Animation_getLoops(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_getLoops'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_getLoops'", nullptr);
+            return 0;
+        }
+        unsigned int ret = cobj->getLoops();
+        tolua_pushnumber(tolua_S,(lua_Number)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:getLoops",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_getLoops'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_addSpriteFrame(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_addSpriteFrame'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        cocos2d::SpriteFrame* arg0;
+
+        ok &= luaval_to_object<cocos2d::SpriteFrame>(tolua_S, 2, "cc.SpriteFrame",&arg0, "cc.Animation:addSpriteFrame");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_addSpriteFrame'", nullptr);
+            return 0;
+        }
+        cobj->addSpriteFrame(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:addSpriteFrame",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_addSpriteFrame'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_setRestoreOriginalFrame(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_setRestoreOriginalFrame'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        bool arg0;
+
+        ok &= luaval_to_boolean(tolua_S, 2,&arg0, "cc.Animation:setRestoreOriginalFrame");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_setRestoreOriginalFrame'", nullptr);
+            return 0;
+        }
+        cobj->setRestoreOriginalFrame(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:setRestoreOriginalFrame",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_setRestoreOriginalFrame'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_getDuration(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_getDuration'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_getDuration'", nullptr);
+            return 0;
+        }
+        double ret = cobj->getDuration();
+        tolua_pushnumber(tolua_S,(lua_Number)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:getDuration",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_getDuration'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_initWithAnimationFrames(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_initWithAnimationFrames'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 3) 
+    {
+        cocos2d::Vector<cocos2d::AnimationFrame *> arg0;
+        double arg1;
+        unsigned int arg2;
+
+        ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:initWithAnimationFrames");
+
+        ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.Animation:initWithAnimationFrames");
+
+        ok &= luaval_to_uint32(tolua_S, 4,&arg2, "cc.Animation:initWithAnimationFrames");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_initWithAnimationFrames'", nullptr);
+            return 0;
+        }
+        bool ret = cobj->initWithAnimationFrames(arg0, arg1, arg2);
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:initWithAnimationFrames",argc, 3);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_initWithAnimationFrames'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_init(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_init'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_init'", nullptr);
+            return 0;
+        }
+        bool ret = cobj->init();
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:init",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_init'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_setFrames(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_setFrames'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        cocos2d::Vector<cocos2d::AnimationFrame *> arg0;
+
+        ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:setFrames");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_setFrames'", nullptr);
+            return 0;
+        }
+        cobj->setFrames(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:setFrames",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_setFrames'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_getFrames(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_getFrames'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_getFrames'", nullptr);
+            return 0;
+        }
+        const cocos2d::Vector<cocos2d::AnimationFrame *>& ret = cobj->getFrames();
+        ccvector_to_luaval(tolua_S, ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:getFrames",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_getFrames'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_setLoops(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_setLoops'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        unsigned int arg0;
+
+        ok &= luaval_to_uint32(tolua_S, 2,&arg0, "cc.Animation:setLoops");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_setLoops'", nullptr);
+            return 0;
+        }
+        cobj->setLoops(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:setLoops",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_setLoops'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_setDelayPerUnit(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_setDelayPerUnit'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        double arg0;
+
+        ok &= luaval_to_number(tolua_S, 2,&arg0, "cc.Animation:setDelayPerUnit");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_setDelayPerUnit'", nullptr);
+            return 0;
+        }
+        cobj->setDelayPerUnit(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:setDelayPerUnit",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_setDelayPerUnit'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_addSpriteFrameWithFile(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_addSpriteFrameWithFile'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        std::string arg0;
+
+        ok &= luaval_to_std_string(tolua_S, 2,&arg0, "cc.Animation:addSpriteFrameWithFile");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_addSpriteFrameWithFile'", nullptr);
+            return 0;
+        }
+        cobj->addSpriteFrameWithFile(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:addSpriteFrameWithFile",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_addSpriteFrameWithFile'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_getTotalDelayUnits(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_getTotalDelayUnits'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_getTotalDelayUnits'", nullptr);
+            return 0;
+        }
+        double ret = cobj->getTotalDelayUnits();
+        tolua_pushnumber(tolua_S,(lua_Number)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:getTotalDelayUnits",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_getTotalDelayUnits'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_getDelayPerUnit(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_getDelayPerUnit'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_getDelayPerUnit'", nullptr);
+            return 0;
+        }
+        double ret = cobj->getDelayPerUnit();
+        tolua_pushnumber(tolua_S,(lua_Number)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:getDelayPerUnit",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_getDelayPerUnit'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_initWithSpriteFrames(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_initWithSpriteFrames'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 1) 
+    {
+        cocos2d::Vector<cocos2d::SpriteFrame *> arg0;
+
+        ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:initWithSpriteFrames");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_initWithSpriteFrames'", nullptr);
+            return 0;
+        }
+        bool ret = cobj->initWithSpriteFrames(arg0);
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    if (argc == 2) 
+    {
+        cocos2d::Vector<cocos2d::SpriteFrame *> arg0;
+        double arg1;
+
+        ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:initWithSpriteFrames");
+
+        ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.Animation:initWithSpriteFrames");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_initWithSpriteFrames'", nullptr);
+            return 0;
+        }
+        bool ret = cobj->initWithSpriteFrames(arg0, arg1);
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    if (argc == 3) 
+    {
+        cocos2d::Vector<cocos2d::SpriteFrame *> arg0;
+        double arg1;
+        unsigned int arg2;
+
+        ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:initWithSpriteFrames");
+
+        ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.Animation:initWithSpriteFrames");
+
+        ok &= luaval_to_uint32(tolua_S, 4,&arg2, "cc.Animation:initWithSpriteFrames");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_initWithSpriteFrames'", nullptr);
+            return 0;
+        }
+        bool ret = cobj->initWithSpriteFrames(arg0, arg1, arg2);
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:initWithSpriteFrames",argc, 1);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_initWithSpriteFrames'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_getRestoreOriginalFrame(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_getRestoreOriginalFrame'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_getRestoreOriginalFrame'", nullptr);
+            return 0;
+        }
+        bool ret = cobj->getRestoreOriginalFrame();
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:getRestoreOriginalFrame",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_getRestoreOriginalFrame'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_addSpriteFrameWithTexture(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertype(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    cobj = (cocos2d::Animation*)tolua_tousertype(tolua_S,1,0);
+
+#if COCOS2D_DEBUG >= 1
+    if (!cobj) 
+    {
+        tolua_error(tolua_S,"invalid 'cobj' in function 'lua_DbManager_Animation_addSpriteFrameWithTexture'", nullptr);
+        return 0;
+    }
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 2) 
+    {
+        cocos2d::Texture2D* arg0;
+        cocos2d::Rect arg1;
+
+        ok &= luaval_to_object<cocos2d::Texture2D>(tolua_S, 2, "cc.Texture2D",&arg0, "cc.Animation:addSpriteFrameWithTexture");
+
+        ok &= luaval_to_rect(tolua_S, 3, &arg1, "cc.Animation:addSpriteFrameWithTexture");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_addSpriteFrameWithTexture'", nullptr);
+            return 0;
+        }
+        cobj->addSpriteFrameWithTexture(arg0, arg1);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:addSpriteFrameWithTexture",argc, 2);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_addSpriteFrameWithTexture'.",&tolua_err);
+#endif
+
+    return 0;
+}
+int lua_DbManager_Animation_create(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S)-1;
+
+    do 
+    {
+        if (argc == 2)
+        {
+            cocos2d::Vector<cocos2d::AnimationFrame *> arg0;
+            ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:create");
+            if (!ok) { break; }
+            double arg1;
+            ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.Animation:create");
+            if (!ok) { break; }
+            cocos2d::Animation* ret = cocos2d::Animation::create(arg0, arg1);
+            object_to_luaval<cocos2d::Animation>(tolua_S, "cc.Animation",(cocos2d::Animation*)ret);
+            return 1;
+        }
+    } while (0);
+    ok  = true;
+    do 
+    {
+        if (argc == 3)
+        {
+            cocos2d::Vector<cocos2d::AnimationFrame *> arg0;
+            ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:create");
+            if (!ok) { break; }
+            double arg1;
+            ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.Animation:create");
+            if (!ok) { break; }
+            unsigned int arg2;
+            ok &= luaval_to_uint32(tolua_S, 4,&arg2, "cc.Animation:create");
+            if (!ok) { break; }
+            cocos2d::Animation* ret = cocos2d::Animation::create(arg0, arg1, arg2);
+            object_to_luaval<cocos2d::Animation>(tolua_S, "cc.Animation",(cocos2d::Animation*)ret);
+            return 1;
+        }
+    } while (0);
+    ok  = true;
+    do 
+    {
+        if (argc == 0)
+        {
+            cocos2d::Animation* ret = cocos2d::Animation::create();
+            object_to_luaval<cocos2d::Animation>(tolua_S, "cc.Animation",(cocos2d::Animation*)ret);
+            return 1;
+        }
+    } while (0);
+    ok  = true;
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d", "cc.Animation:create",argc, 0);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_create'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_DbManager_Animation_createWithSpriteFrames(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"cc.Animation",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 1)
+    {
+        cocos2d::Vector<cocos2d::SpriteFrame *> arg0;
+        ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:createWithSpriteFrames");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_createWithSpriteFrames'", nullptr);
+            return 0;
+        }
+        cocos2d::Animation* ret = cocos2d::Animation::createWithSpriteFrames(arg0);
+        object_to_luaval<cocos2d::Animation>(tolua_S, "cc.Animation",(cocos2d::Animation*)ret);
+        return 1;
+    }
+    if (argc == 2)
+    {
+        cocos2d::Vector<cocos2d::SpriteFrame *> arg0;
+        double arg1;
+        ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:createWithSpriteFrames");
+        ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.Animation:createWithSpriteFrames");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_createWithSpriteFrames'", nullptr);
+            return 0;
+        }
+        cocos2d::Animation* ret = cocos2d::Animation::createWithSpriteFrames(arg0, arg1);
+        object_to_luaval<cocos2d::Animation>(tolua_S, "cc.Animation",(cocos2d::Animation*)ret);
+        return 1;
+    }
+    if (argc == 3)
+    {
+        cocos2d::Vector<cocos2d::SpriteFrame *> arg0;
+        double arg1;
+        unsigned int arg2;
+        ok &= luaval_to_ccvector(tolua_S, 2, &arg0, "cc.Animation:createWithSpriteFrames");
+        ok &= luaval_to_number(tolua_S, 3,&arg1, "cc.Animation:createWithSpriteFrames");
+        ok &= luaval_to_uint32(tolua_S, 4,&arg2, "cc.Animation:createWithSpriteFrames");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_createWithSpriteFrames'", nullptr);
+            return 0;
+        }
+        cocos2d::Animation* ret = cocos2d::Animation::createWithSpriteFrames(arg0, arg1, arg2);
+        object_to_luaval<cocos2d::Animation>(tolua_S, "cc.Animation",(cocos2d::Animation*)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "cc.Animation:createWithSpriteFrames",argc, 1);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_createWithSpriteFrames'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_DbManager_Animation_constructor(lua_State* tolua_S)
+{
+    int argc = 0;
+    cocos2d::Animation* cobj = nullptr;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+
+
+    argc = lua_gettop(tolua_S)-1;
+    if (argc == 0) 
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_Animation_constructor'", nullptr);
+            return 0;
+        }
+        cobj = new cocos2d::Animation();
+        cobj->autorelease();
+        int ID =  (int)cobj->_ID ;
+        int* luaID =  &cobj->_luaID ;
+        toluafix_pushusertype_ccobject(tolua_S, ID, luaID, (void*)cobj,"cc.Animation");
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d \n", "cc.Animation:Animation",argc, 0);
+    return 0;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_Animation_constructor'.",&tolua_err);
+#endif
+
+    return 0;
+}
+
+static int lua_DbManager_Animation_finalize(lua_State* tolua_S)
+{
+    printf("luabindings: finalizing LUA object (Animation)");
+    return 0;
+}
+
+int lua_register_DbManager_Animation(lua_State* tolua_S)
+{
+    tolua_usertype(tolua_S,"cc.Animation");
+    tolua_cclass(tolua_S,"Animation","cc.Animation","cc.Clonable",nullptr);
+
+    tolua_beginmodule(tolua_S,"Animation");
+        tolua_function(tolua_S,"new",lua_DbManager_Animation_constructor);
+        tolua_function(tolua_S,"getLoops",lua_DbManager_Animation_getLoops);
+        tolua_function(tolua_S,"addSpriteFrame",lua_DbManager_Animation_addSpriteFrame);
+        tolua_function(tolua_S,"setRestoreOriginalFrame",lua_DbManager_Animation_setRestoreOriginalFrame);
+        tolua_function(tolua_S,"getDuration",lua_DbManager_Animation_getDuration);
+        tolua_function(tolua_S,"initWithAnimationFrames",lua_DbManager_Animation_initWithAnimationFrames);
+        tolua_function(tolua_S,"init",lua_DbManager_Animation_init);
+        tolua_function(tolua_S,"setFrames",lua_DbManager_Animation_setFrames);
+        tolua_function(tolua_S,"getFrames",lua_DbManager_Animation_getFrames);
+        tolua_function(tolua_S,"setLoops",lua_DbManager_Animation_setLoops);
+        tolua_function(tolua_S,"setDelayPerUnit",lua_DbManager_Animation_setDelayPerUnit);
+        tolua_function(tolua_S,"addSpriteFrameWithFile",lua_DbManager_Animation_addSpriteFrameWithFile);
+        tolua_function(tolua_S,"getTotalDelayUnits",lua_DbManager_Animation_getTotalDelayUnits);
+        tolua_function(tolua_S,"getDelayPerUnit",lua_DbManager_Animation_getDelayPerUnit);
+        tolua_function(tolua_S,"initWithSpriteFrames",lua_DbManager_Animation_initWithSpriteFrames);
+        tolua_function(tolua_S,"getRestoreOriginalFrame",lua_DbManager_Animation_getRestoreOriginalFrame);
+        tolua_function(tolua_S,"addSpriteFrameWithTexture",lua_DbManager_Animation_addSpriteFrameWithTexture);
+        tolua_function(tolua_S,"create", lua_DbManager_Animation_create);
+        tolua_function(tolua_S,"createWithSpriteFrames", lua_DbManager_Animation_createWithSpriteFrames);
+    tolua_endmodule(tolua_S);
+    std::string typeName = typeid(cocos2d::Animation).name();
+    g_luaType[typeName] = "cc.Animation";
+    g_typeCast["Animation"] = "cc.Animation";
+    return 1;
+}
+
 int lua_DbManager_EventObject_getBone(lua_State* tolua_S)
 {
     int argc = 0;
@@ -1071,20 +2106,14 @@ int lua_DbManager_DbManager_ArmarureAddEventListener(lua_State* tolua_S)
         dragonBones::CCArmatureDisplay* arg0;
         std::function<void (cocos2d::EventCustom *)> arg1;
         ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarureAddEventListener");
-
-		LUA_FUNCTION handler = (toluafix_ref_function(tolua_S, 3, 0));
-  //      do {
-		//	// Lambda binding for lua is not supported.
-		//	assert(false);
-		//} while(0)
-		;
-        if(!ok)
-        {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarureAddEventListener'", nullptr);
-            return 0;
-        }
+		
+		if (!ok)
+		{
+			tolua_error(tolua_S, "invalid arguments in function 'lua_DbManager_DbManager_ArmarureAddEventListener'", nullptr);
+			return 0;
+		}
 		DbManager::ArmarureAddEventListener(arg0, [=](EventCustom* e) {
-			
+
 			const auto eventObject = (dragonBones::EventObject*)e->getUserData();
 
 			std::string aniName = eventObject->animationState->name.c_str();
@@ -1095,7 +2124,7 @@ int lua_DbManager_DbManager_ArmarureAddEventListener(lua_State* tolua_S)
 
 			LuaStack* stack = LuaEngine::getInstance()->getLuaStack();
 
-			stack->pushString(aniName.c_str(),aniName.size());
+			stack->pushString(aniName.c_str(), aniName.size());
 			stack->pushString(aniType.c_str(), aniType.size());
 			stack->pushString(customEvent.c_str(), customEvent.size());
 			//stack->pushObject(e, "cc.Event");
@@ -1105,6 +2134,8 @@ int lua_DbManager_DbManager_ArmarureAddEventListener(lua_State* tolua_S)
 			stack->executeFunctionByHandler(handler, 3);
 			stack->clean();
 		});
+
+
         lua_settop(tolua_S, 1);
         return 1;
     }
@@ -1309,6 +2340,7 @@ TOLUA_API int register_all_DbManager(lua_State* tolua_S)
 	lua_register_DbManager_CCArmatureDisplay(tolua_S);
 	lua_register_DbManager_EventObject(tolua_S);
 	lua_register_DbManager_DbManager(tolua_S);
+	lua_register_DbManager_Animation(tolua_S);
 
 	tolua_endmodule(tolua_S);
 	return 1;
