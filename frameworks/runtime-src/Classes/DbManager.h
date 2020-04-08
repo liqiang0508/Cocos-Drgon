@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "cocos2d.h"
+#include "base/CCEventCustom.h"
 #include "dragonBones/cocos2dx/CCDragonBonesHeaders.h"
 //#include "dragonBones\cocos2dx\CCArmatureDisplay.h"
 
