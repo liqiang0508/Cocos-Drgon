@@ -1,0 +1,9 @@
+frameworks/cocos2d-x
+simulator/
+runtime/
+*.obj
+*.lib
+*.dll
+*.pdb
+*.tlog
+*.sdf
