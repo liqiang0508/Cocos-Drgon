@@ -2,6 +2,7 @@
 
 #include "base/CCEventCustom.h"
 #include "dragonBones/cocos2dx/CCDragonBonesHeaders.h"
+#include "dragonBones/model/SkinData.h"
 //#include "dragonBones\cocos2dx\CCArmatureDisplay.h"
 
 using namespace cocos2d;
@@ -26,7 +27,9 @@ public:
 	static void ArmarureAddEventListener(CCArmatureDisplay* ar, const std::function<void(EventCustom*)>& callback);
 
 
-private:
+	//切换skin
+	static bool replaceSkin(CCArmatureDisplay* armaturedisplay, const std::string& partArmatureName, bool isOverride = false, const std::vector<std::string>* exclude = nullptr);
 
-
+	//清理 清除缓存的所有 DragonBonesData 实例和 TextureAtlasData 实例
+	static void clean(bool disposeData = true);
 };

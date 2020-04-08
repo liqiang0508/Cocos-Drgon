@@ -4764,7 +4764,7 @@ int lua_register_DbManager_CCArmatureDisplay(lua_State* tolua_S)
     return 1;
 }
 
-int lua_DbManager_DbManager_ArmarurePalyAni(lua_State* tolua_S)
+int lua_DbManager_DbManager_replaceSkin(lua_State* tolua_S)
 {
     int argc = 0;
     bool ok  = true;
@@ -4783,39 +4783,109 @@ int lua_DbManager_DbManager_ArmarurePalyAni(lua_State* tolua_S)
     {
         dragonBones::CCArmatureDisplay* arg0;
         std::string arg1;
-        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarurePalyAni");
-        ok &= luaval_to_std_string(tolua_S, 3,&arg1, "DbManager:ArmarurePalyAni");
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:replaceSkin");
+        ok &= luaval_to_std_string(tolua_S, 3,&arg1, "DbManager:replaceSkin");
         if(!ok)
         {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarurePalyAni'", nullptr);
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_replaceSkin'", nullptr);
             return 0;
         }
-        DbManager::ArmarurePalyAni(arg0, arg1);
-        lua_settop(tolua_S, 1);
+        bool ret = DbManager::replaceSkin(arg0, arg1);
+        tolua_pushboolean(tolua_S,(bool)ret);
         return 1;
     }
     if (argc == 3)
     {
         dragonBones::CCArmatureDisplay* arg0;
         std::string arg1;
-        int arg2;
-        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarurePalyAni");
-        ok &= luaval_to_std_string(tolua_S, 3,&arg1, "DbManager:ArmarurePalyAni");
-        ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2, "DbManager:ArmarurePalyAni");
+        bool arg2;
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:replaceSkin");
+        ok &= luaval_to_std_string(tolua_S, 3,&arg1, "DbManager:replaceSkin");
+        ok &= luaval_to_boolean(tolua_S, 4,&arg2, "DbManager:replaceSkin");
         if(!ok)
         {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarurePalyAni'", nullptr);
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_replaceSkin'", nullptr);
             return 0;
         }
-        DbManager::ArmarurePalyAni(arg0, arg1, arg2);
-        lua_settop(tolua_S, 1);
+        bool ret = DbManager::replaceSkin(arg0, arg1, arg2);
+        tolua_pushboolean(tolua_S,(bool)ret);
         return 1;
     }
-    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "DbManager:ArmarurePalyAni",argc, 2);
+    if (argc == 4)
+    {
+        dragonBones::CCArmatureDisplay* arg0;
+        std::string arg1;
+        bool arg2;
+        const std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >* arg3;
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:replaceSkin");
+        ok &= luaval_to_std_string(tolua_S, 3,&arg1, "DbManager:replaceSkin");
+        ok &= luaval_to_boolean(tolua_S, 4,&arg2, "DbManager:replaceSkin");
+        ok &= luaval_to_object<const std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >>(tolua_S, 5, "std::vector<std::basic_string<char>, std::allocator<std::basic_string<char> > >*",&arg3, "DbManager:replaceSkin");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_replaceSkin'", nullptr);
+            return 0;
+        }
+        bool ret = DbManager::replaceSkin(arg0, arg1, arg2, arg3);
+        tolua_pushboolean(tolua_S,(bool)ret);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "DbManager:replaceSkin",argc, 2);
     return 0;
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_DbManager_ArmarurePalyAni'.",&tolua_err);
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_DbManager_replaceSkin'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_DbManager_DbManager_ArmarureAniTimeScale(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"DbManager",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 1)
+    {
+        dragonBones::CCArmatureDisplay* arg0;
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarureAniTimeScale");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'", nullptr);
+            return 0;
+        }
+        DbManager::ArmarureAniTimeScale(arg0);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    if (argc == 2)
+    {
+        dragonBones::CCArmatureDisplay* arg0;
+        double arg1;
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarureAniTimeScale");
+        ok &= luaval_to_number(tolua_S, 3,&arg1, "DbManager:ArmarureAniTimeScale");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'", nullptr);
+            return 0;
+        }
+        DbManager::ArmarureAniTimeScale(arg0, arg1);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "DbManager:ArmarureAniTimeScale",argc, 1);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'.",&tolua_err);
 #endif
     return 0;
 }
@@ -5003,7 +5073,7 @@ int lua_DbManager_DbManager_buildArmatureDisplay(lua_State* tolua_S)
 #endif
     return 0;
 }
-int lua_DbManager_DbManager_ArmarureAniTimeScale(lua_State* tolua_S)
+int lua_DbManager_DbManager_clean(lua_State* tolua_S)
 {
     int argc = 0;
     bool ok  = true;
@@ -5018,39 +5088,90 @@ int lua_DbManager_DbManager_ArmarureAniTimeScale(lua_State* tolua_S)
 
     argc = lua_gettop(tolua_S) - 1;
 
+    if (argc == 0)
+    {
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_clean'", nullptr);
+            return 0;
+        }
+        DbManager::clean();
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
     if (argc == 1)
     {
-        dragonBones::CCArmatureDisplay* arg0;
-        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarureAniTimeScale");
+        bool arg0;
+        ok &= luaval_to_boolean(tolua_S, 2,&arg0, "DbManager:clean");
         if(!ok)
         {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'", nullptr);
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_clean'", nullptr);
             return 0;
         }
-        DbManager::ArmarureAniTimeScale(arg0);
+        DbManager::clean(arg0);
         lua_settop(tolua_S, 1);
         return 1;
     }
-    if (argc == 2)
-    {
-        dragonBones::CCArmatureDisplay* arg0;
-        double arg1;
-        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarureAniTimeScale");
-        ok &= luaval_to_number(tolua_S, 3,&arg1, "DbManager:ArmarureAniTimeScale");
-        if(!ok)
-        {
-            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'", nullptr);
-            return 0;
-        }
-        DbManager::ArmarureAniTimeScale(arg0, arg1);
-        lua_settop(tolua_S, 1);
-        return 1;
-    }
-    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "DbManager:ArmarureAniTimeScale",argc, 1);
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "DbManager:clean",argc, 0);
     return 0;
 #if COCOS2D_DEBUG >= 1
     tolua_lerror:
-    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_DbManager_ArmarureAniTimeScale'.",&tolua_err);
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_DbManager_clean'.",&tolua_err);
+#endif
+    return 0;
+}
+int lua_DbManager_DbManager_ArmarurePalyAni(lua_State* tolua_S)
+{
+    int argc = 0;
+    bool ok  = true;
+
+#if COCOS2D_DEBUG >= 1
+    tolua_Error tolua_err;
+#endif
+
+#if COCOS2D_DEBUG >= 1
+    if (!tolua_isusertable(tolua_S,1,"DbManager",0,&tolua_err)) goto tolua_lerror;
+#endif
+
+    argc = lua_gettop(tolua_S) - 1;
+
+    if (argc == 2)
+    {
+        dragonBones::CCArmatureDisplay* arg0;
+        std::string arg1;
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarurePalyAni");
+        ok &= luaval_to_std_string(tolua_S, 3,&arg1, "DbManager:ArmarurePalyAni");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarurePalyAni'", nullptr);
+            return 0;
+        }
+        DbManager::ArmarurePalyAni(arg0, arg1);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    if (argc == 3)
+    {
+        dragonBones::CCArmatureDisplay* arg0;
+        std::string arg1;
+        int arg2;
+        ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarurePalyAni");
+        ok &= luaval_to_std_string(tolua_S, 3,&arg1, "DbManager:ArmarurePalyAni");
+        ok &= luaval_to_int32(tolua_S, 4,(int *)&arg2, "DbManager:ArmarurePalyAni");
+        if(!ok)
+        {
+            tolua_error(tolua_S,"invalid arguments in function 'lua_DbManager_DbManager_ArmarurePalyAni'", nullptr);
+            return 0;
+        }
+        DbManager::ArmarurePalyAni(arg0, arg1, arg2);
+        lua_settop(tolua_S, 1);
+        return 1;
+    }
+    luaL_error(tolua_S, "%s has wrong number of arguments: %d, was expecting %d\n ", "DbManager:ArmarurePalyAni",argc, 2);
+    return 0;
+#if COCOS2D_DEBUG >= 1
+    tolua_lerror:
+    tolua_error(tolua_S,"#ferror in function 'lua_DbManager_DbManager_ArmarurePalyAni'.",&tolua_err);
 #endif
     return 0;
 }
@@ -5102,11 +5223,13 @@ int lua_register_DbManager_DbManager(lua_State* tolua_S)
 
     tolua_beginmodule(tolua_S,"DbManager");
         tolua_function(tolua_S,"new",lua_DbManager_DbManager_constructor);
-        tolua_function(tolua_S,"ArmarurePalyAni", lua_DbManager_DbManager_ArmarurePalyAni);
+        tolua_function(tolua_S,"replaceSkin", lua_DbManager_DbManager_replaceSkin);
+        tolua_function(tolua_S,"ArmarureAniTimeScale", lua_DbManager_DbManager_ArmarureAniTimeScale);
         tolua_function(tolua_S,"ArmarureAddEventListener", lua_DbManager_DbManager_ArmarureAddEventListener);
         tolua_function(tolua_S,"LoadData", lua_DbManager_DbManager_LoadData);
         tolua_function(tolua_S,"buildArmatureDisplay", lua_DbManager_DbManager_buildArmatureDisplay);
-        tolua_function(tolua_S,"ArmarureAniTimeScale", lua_DbManager_DbManager_ArmarureAniTimeScale);
+        tolua_function(tolua_S,"clean", lua_DbManager_DbManager_clean);
+        tolua_function(tolua_S,"ArmarurePalyAni", lua_DbManager_DbManager_ArmarurePalyAni);
     tolua_endmodule(tolua_S);
     std::string typeName = typeid(DbManager).name();
     g_luaType[typeName] = "DbManager";

@@ -59,3 +59,19 @@ DbManager::~DbManager()
 {
 	
 }
+
+bool DbManager::replaceSkin(CCArmatureDisplay* armaturedisplay, const std::string& partArmatureName, bool isOverride , const std::vector<std::string>* exclude )
+{
+	auto  _factory = dragonBones::CCFactory::getFactory();
+
+	const auto partArmatureData = _factory->getArmatureData(partArmatureName);
+
+	return _factory->replaceSkin(armaturedisplay->getArmature(), partArmatureData->defaultSkin, isOverride,exclude);
+
+}
+
+void DbManager::clean(bool disposeData)
+{
+	auto  _factory = dragonBones::CCFactory::getFactory();
+	_factory->clear(disposeData);
+}

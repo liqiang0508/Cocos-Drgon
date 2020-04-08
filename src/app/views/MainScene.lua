@@ -14,7 +14,7 @@ function MainScene:onCreate()
 		
 	DbManager:LoadData("Dragon/Dragon_ske.json", "Dragon/Dragon_tex.json")
 	local ar =DbManager:buildArmatureDisplay("Dragon", "Dragon")
-	print("ar===",ar,type(ar))
+
 	self:addChild(ar)
 	ar:setPosition(display.center)
 	ar:setScale(0.5)
@@ -22,10 +22,14 @@ function MainScene:onCreate()
 	DbManager:ArmarurePalyAni(ar,"walk");
 	DbManager:ArmarureAniTimeScale(ar,0.5)
 	print(ar:getBoundingBox())
+	
+	local  anis =  ar:getAnimation():getAnimationNames()
+	dump(anis)
+	
 	DbManager:ArmarureAddEventListener(ar,function(aniName,aniType,customEvent)
 	
 		print(aniName,aniType,customEvent)
-		ar:setVisible(not ar:isVisible())
+		--ar:setVisible(not ar:isVisible())
 	end)
 end
 
