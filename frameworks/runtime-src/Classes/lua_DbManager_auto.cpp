@@ -2106,7 +2106,7 @@ int lua_DbManager_DbManager_ArmarureAddEventListener(lua_State* tolua_S)
         dragonBones::CCArmatureDisplay* arg0;
         std::function<void (cocos2d::EventCustom *)> arg1;
         ok &= luaval_to_object<dragonBones::CCArmatureDisplay>(tolua_S, 2, "db.CCArmatureDisplay",&arg0, "DbManager:ArmarureAddEventListener");
-		
+		LUA_FUNCTION handler = (toluafix_ref_function(tolua_S, 3, 0));
 		if (!ok)
 		{
 			tolua_error(tolua_S, "invalid arguments in function 'lua_DbManager_DbManager_ArmarureAddEventListener'", nullptr);
